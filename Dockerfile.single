@@ -1,0 +1,10 @@
+FROM golang:1.23.1
+
+WORKDIR /app
+COPY . .
+
+# Build the Go application
+RUN CGO_ENABLED=0 GOOS=linux go build -o hello-world .
+
+# Command to run the executable
+CMD ["./hello-world"]
